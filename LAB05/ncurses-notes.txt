@@ -1,0 +1,5 @@
+ncurses notes:
+
+- int wborder(WINDOW *win, chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br);
+- ACS_CKBOARD = 4194401;
+- mvaddch(2, 0, 4194401);
