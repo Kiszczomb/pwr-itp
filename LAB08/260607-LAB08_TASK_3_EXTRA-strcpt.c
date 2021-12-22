@@ -24,7 +24,7 @@ int strlenght(char *str) {
 }
 
 char *strcpt(char *str, int size) {
-    char *result = malloc(sizeof(char)*size);
+    char *result = malloc(sizeof(char)*(size+1));
     int pos = 0;
     int cpt = 1;
 

@@ -13,20 +13,29 @@ int main() {
 	return 0;
 }
 
+unsigned int strlenght(char *str) {
+    char *count = str;
+    while(*count != 0) count++;
+    return (count-str)/sizeof(char);
+}
+
 char *strins(char *text, char *ins, unsigned int pos) {
-    int text_len = 0;
-    while(text[text_len] != 0) text_len++;
-    int ins_len = 0;
-    while(ins[ins_len] != 0) ins_len++;
-    char result[text_len+ins_len];
+    unsigned int text_len = strlenght(text);
+    unsigned int ins_len = strlenght(ins);
+    unsigned int len = text_len + ins_len;
+    char result[len];
 
     int i = 0;
-    while(i < text_len + ins_len) {
+    while(i < len) {
        if(i < pos) result[i] = text[i];
        else if(i < pos + ins_len - 1) result[i] = ins[i-pos];
        else result[i] = text[i-ins_len];
-       i++;   
+       i++;
     }
-    text = result;    
+
+    while(len--) {
+         text[len] = result[len];
+    }
+
     return text;
 }
